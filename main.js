@@ -50,17 +50,17 @@ var todoList = {
         this.todos.splice(0, this.todos.length);
     },
 
-    clearAllCompletedTodos: function(){
+    clearAllCompletedTodos: function () {
 
-        for (var i = 0; i < this.todos.length; i++){
-            if (this.todos[i].completed){
+        for (var i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].completed) {
                 this.deleteTodo(i);
                 --i;
             }
         }
     },
     updadePossitions: function () {
-        this.todos.forEach(function(todo , index){
+        this.todos.forEach(function (todo, index) {
             todo.position = index;
         });
     },
@@ -144,15 +144,30 @@ var view = {
     },
 
     creatCompletedCheckBox: function (isCompleted) {
+
+        // <label class="checkBoxHolder">One
+        //     <input type="checkbox" checked="checked">
+        //     <span class="checkmark"></span>
+        // </label>
+
+        var checkBoxHolder = document.createElement('label');
         var checkBox = document.createElement('input');
+        var checkmark = document.createElement('span');
+
+        checkBoxHolder.className = 'checkBoxHolder';
         checkBox.type = 'checkbox';
         checkBox.className = 'completedCheckBox';
+        checkmark.className = 'checkmark';
+        checkBoxHolder.appendChild(checkBox);
+        checkBoxHolder.appendChild(checkmark);
+
+
         if (isCompleted) {
             checkBox.checked = true;
         } else {
             checkBox.checked = false;
         }
-        return checkBox;
+        return checkBoxHolder;
     },
 
     setupEventListeners: function () {
@@ -167,7 +182,7 @@ var view = {
                 handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
             } else if (elementClicked.className === 'completedCheckBox') {
 
-                handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
+                handlers.toggleCompleted(parseInt(elementClicked.parentNode.parentNode.id));
             }
         });
 
@@ -185,7 +200,7 @@ var view = {
                 handlers.addTodo();
             }
         });
-        
+
     },
 
 };
