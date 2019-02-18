@@ -12,13 +12,16 @@
 <body>
 
     <div class="todosContainer">
+        <div class="buttonsHolder">
+            <button class="genericButton" onclick="handlers.clearAllTodos()">Clear all</button>
+            <button class="genericButton" onclick="handlers.clearAllCompletedTodos()">Clear all completed</button>
+            <button class="genericButton" onclick="handlers.toggleAll()">Toggle all complete</button>
+        </div>
         <div>
             <input type="text" id="todoTextInput" placeholder="What needs to be done?" />
         </div>
 
-        <button onclick="handlers.clearAllTodos()">clear all</button>
-        <button onclick="handlers.clearAllCompletedTodos()">clear all completed</button>
-        <button onclick="handlers.toggleAll()">toggle all complete</button>
+
         <ul id="todosListElement">
 
         </ul>
