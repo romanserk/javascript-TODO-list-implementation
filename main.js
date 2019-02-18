@@ -185,7 +185,7 @@ var view = {
                 handlers.toggleCompleted(parseInt(elementClicked.parentNode.parentNode.id));
             }
         });
-
+        // to change todo insert new text and prwss enter
         todosUl.addEventListener('keypress', function (event) {
             var elementPressed = event.target;
 
@@ -195,6 +195,7 @@ var view = {
             }
         });
 
+        // to add new doto insert text and press emter
         addTodo.addEventListener('keypress', function (event) {
             if (event.key === 'Enter') {
                 handlers.addTodo();
