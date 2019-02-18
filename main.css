@@ -4,7 +4,9 @@
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
-  width: 500px;
+  width: 600px;
+  border: 1px black solid;
+  padding: 10px;
 }
 
 #todosListElement {
@@ -60,3 +62,4 @@
   font-size: 2rem;
   text-align: center;
 }
+/*# sourceMappingURL=main.css.map */

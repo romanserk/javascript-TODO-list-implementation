@@ -1,0 +1,70 @@
+.todosContainer {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    width: 600px;
+    border: 1px black solid;
+    padding: 10px;
+}
+
+
+#todosListElement {
+    padding: 0px;
+
+    li {
+        list-style: none;
+        padding: 0px;
+        position: relative;
+
+        .deletButton {
+            visibility: hidden;
+            background: none;
+            border: none;
+            color: #808080;
+            font-size: 2rem;
+            position: absolute;
+            height: 50px;
+            right: 0px;
+            top: 0px;
+            height: 100%;
+            cursor: pointer;
+
+            &:focus {
+                outline: 0;
+            }
+
+        }
+
+        &:hover {
+
+            .deletButton {
+                visibility: visible;
+            }
+        }
+
+    }
+}
+
+
+.completedCheckBox {
+    width: 30px;
+    position: absolute;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+
+#todoTextInput {
+    width: 100%;
+    height: 60px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.todoTextHolder {
+    width: 100%;
+    height: 60px;
+    font-size: 2rem;
+    text-align: center;
+}

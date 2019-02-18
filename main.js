@@ -19,7 +19,7 @@ var todoList = {
 
     deleteTodo: function (position) {
         this.todos.splice(position, 1);
-
+        this.updadePossitions();
     },
 
     toggleCompleted: function (position) {
@@ -49,6 +49,21 @@ var todoList = {
     clearAllTodos: function () {
         this.todos.splice(0, this.todos.length);
     },
+
+    clearAllCompletedTodos: function(){
+
+        for (var i = 0; i < this.todos.length; i++){
+            if (this.todos[i].completed){
+                this.deleteTodo(i);
+                --i;
+            }
+        }
+    },
+    updadePossitions: function () {
+        this.todos.forEach(function(todo , index){
+            todo.position = index;
+        });
+    },
 };
 
 var handlers = {
@@ -62,6 +77,10 @@ var handlers = {
 
     clearAllTodos: function () {
         todoList.clearAllTodos();
+        view.displayTodos();
+    },
+    clearAllCompletedTodos: function () {
+        todoList.clearAllCompletedTodos();
         view.displayTodos();
     },
 
